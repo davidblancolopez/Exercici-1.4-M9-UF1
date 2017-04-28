@@ -58,11 +58,8 @@ public class xifratRSAReceptor {
      * @return 
      */
     public PublicKey getClauPublica(){
-        PublicKey key = null;
         
-        key = keyPair.getPublic();
-        
-        return key;
+        return keyPair.getPublic();
     }
     
     /**
