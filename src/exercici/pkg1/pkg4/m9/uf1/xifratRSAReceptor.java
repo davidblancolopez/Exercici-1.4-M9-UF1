@@ -29,9 +29,9 @@ public class xifratRSAReceptor {
     }
     
     public void desxifraDadesReceptor(byte[] data) throws NoSuchProviderException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
-        Cipher cifrador = Cipher.getInstance("RSA/ECB/PKCS1Padding", "SunJCE");
-        cifrador.init(Cipher.DECRYPT_MODE, keyPair.getPrivate());
-        buffer = cifrador.doFinal(data);
+        Cipher descifrador = Cipher.getInstance("RSA/ECB/PKCS1Padding", "SunJCE");
+        descifrador.init(Cipher.DECRYPT_MODE, keyPair.getPrivate());
+        buffer = descifrador.doFinal(data);
     }
 
     public PublicKey getClauPublica(){
