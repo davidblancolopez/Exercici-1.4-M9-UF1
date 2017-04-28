@@ -1,21 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package exercici.pkg1.pkg4.m9.uf1;
 
-/**
- *
- * @author ALUMNEDAM
- */
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+
+
 public class Exercici14M9UF1 {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+
+    public static void main(String[] args) throws NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException, NoSuchProviderException, NoSuchPaddingException, UnsupportedEncodingException {
+        xifratRSAEmissor xRSAe = new xifratRSAEmissor();
+        xifratRSAReceptor xRSAr = new xifratRSAReceptor();
+        
+        xRSAr.generaClaus();
+        
+        xRSAe.xifraDadesEmissor(
+                "Mensaje de prueba", 
+                xRSAr.getClauPublica());
+        
+        System.out.println(xRSAr.getClauPublica());
+        
+        xRSAr.desxifraDadesReceptor(xRSAe.getMissatgeXifrat());
+        System.out.println(new String(xRSAe.getMissatgeXifrat()));
+        System.out.println(new String (xRSAr.getTextDesxifrat()));
     }
     
 }
