@@ -20,6 +20,22 @@ import javax.crypto.NoSuchPaddingException;
 public class xifratRSAEmissor {
     private byte [] missatgeEncriptat;
     
+    
+    /**
+     * Metodo que cifra el mensaje qe le llega por parametro.
+     * Le llega el mensaje y la clave a utilizar para cifrar, crea el cifrador y utiliza 
+     * la clave para meter el mensaje cifrado en el array missatgeEncriptat.
+     * 
+     * @param missatge_text
+     * @param pub
+     * @throws IllegalBlockSizeException
+     * @throws BadPaddingException
+     * @throws InvalidKeyException
+     * @throws NoSuchAlgorithmException
+     * @throws NoSuchProviderException
+     * @throws NoSuchPaddingException
+     * @throws UnsupportedEncodingException 
+     */
     public void xifraDadesEmissor(String missatge_text, PublicKey pub) throws IllegalBlockSizeException, BadPaddingException, InvalidKeyException, NoSuchAlgorithmException, NoSuchProviderException, NoSuchPaddingException, UnsupportedEncodingException{
         byte [] data = missatge_text.getBytes("UTF-8");
         
@@ -28,6 +44,12 @@ public class xifratRSAEmissor {
         missatgeEncriptat = cifrador.doFinal(data);
     }
     
+    /**
+     * Metodo que devuelve el mensaje cifrado.
+     * Devuelve el array missatgeEncriptat.
+     * 
+     * @return 
+     */
     public byte[]  getMissatgeXifrat(){
         return missatgeEncriptat;
     }
