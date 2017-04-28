@@ -19,9 +19,7 @@ public class Exercici14M9UF1 {
         
         xRSAr.generaClaus();
         
-        xRSAe.xifraDadesEmissor(
-                "Mensaje de prueba", 
-                xRSAr.getClauPublica());
+        xRSAe.xifraDadesEmissor( "Mensaje", xRSAr.getClauPublica());
         
         System.out.println(xRSAr.getClauPublica());
         
